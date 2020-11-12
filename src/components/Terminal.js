@@ -80,7 +80,9 @@ class Terminal extends Component {
               className="angle-right"
               style={{ color: "white", fontSize: "15px" }}
             />
-            <Typist cursor={{ hideWhenDone: true }}>Hi I'm {name}</Typist>
+            <Typist cursor={{ hideWhenDone: true }}>
+              Hi! My name is {name}
+            </Typist>
           </div>
         </Delay>
 
