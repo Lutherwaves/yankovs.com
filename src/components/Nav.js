@@ -86,7 +86,9 @@ class Nav extends React.Component {
                 <p>about.html</p>
               </Link>
             </div>
-            <div className="navbar-pages">
+            {/**
+             *
+             <div className="navbar-pages">
               <FontAwesomeIcon
                 icon={faFile}
                 className={portfolio_classname}
@@ -97,6 +99,8 @@ class Nav extends React.Component {
                 <p>projects.html</p>
               </Link>
             </div>
+             */}
+
             {/**
             <div className="navbar-pages">
               <FontAwesomeIcon
