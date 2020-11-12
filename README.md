@@ -1,10 +1,10 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  Keturah - Portfolio Site
+  Martin Yankov's - Portfolio Site
 </h1>
 
-## 👁 Demo
-https://keturah.netlify.com/
+## 👁 Live 
+https://yankovs.com
 
 ## 🚀 Running for Development
 
