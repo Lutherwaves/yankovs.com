@@ -1,6 +1,6 @@
 # This is a repository for Martin Yankov's personal website
 
-## Gitlab CI is used to ensure proper Spelling and Markdown Linting 
+## Gitlab CI is used to ensure proper Spelling and Markdown Linting
 
 ### Spellchecking
 
@@ -37,13 +37,13 @@ npm install -g markdownlint-cli spellchecker-cli retext-spell retext-indefinite-
 - Detect errors
 
 ```bash
-markdownlint-cli '**/*.md' --ignore node_modules
+markdownlint '**/*.md' --ignore node_modules
 ```
 
 - Fix errors (*Note: line-length is not fixed automatically*):
 
 ```bash
-markdownlint-cli --fix '**/*.md' --ignore node_modules
+markdownlint --fix '**/*.md' --ignore node_modules
 ```
 
 - Additionally, spellchecker-cli can be used with the remark-frontmatter plugin to fix additional problems:

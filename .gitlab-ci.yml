@@ -1,6 +1,6 @@
 stages:
   - spellcheck
-  - lint
+  # - lint
 
 spellcheker-cli:
   stage: spellcheck
@@ -9,11 +9,10 @@ spellcheker-cli:
     - npm install -g spellchecker-cli retext-spell retext-indefinite-article retext-repeated-words retext-syntax-mentions retext-syntax-urls
   script:
     - spellchecker --files '**/*.md' -p spell indefinite-article repeated-words syntax-mentions syntax-urls -d dictionary.txt
-
-markdownlint-cli:
-  stage: lint
-  image: node:latest
-  before_script:
-    - npm install -g markdownlint-cli
-  script:
-    - markdownlint '**/*.md' --ignore node_modules
+# markdownlint-cli:
+#   stage: lint
+#   image: node:latest
+#   before_script:
+#     - npm install -g markdownlint-cli
+#   script:
+#     - markdownlint '**/*.md' --ignore node_modules
