@@ -8,44 +8,24 @@ class Nav extends React.Component {
   constructor() {
     super()
     this.state = {
-      portfolio_active: true,
       about_active: false,
       index_classname: "uncliked-file",
       about_classname: "unclicked-file",
-      portfolio_classname: "clicked-file",
-      contact_classname: "unclicked-file",
     }
   }
 
   componentDidMount() {
-    if (window.location.href.includes("portfolio")) {
+    if (window.location.href.includes("about")) {
       this.setState({
-        portfolio_active: true,
-        about_active: false,
-        index_classname: "unclicked-file",
-        about_classname: "unclicked-file",
-        portfolio_classname: "clicked-file",
-        contact_classname: "unclicked-file",
-      })
-    } else if (window.location.href.includes("about")) {
-      this.setState({
-        portfolio_active: false,
         about_active: true,
         index_classname: "unclicked-file",
         about_classname: "clicked-file",
-        portfolio_classname: "unclicked-file",
-        contact_classname: "unclicked-file",
       })
     }
   }
 
   render() {
-    const {
-      index_classname,
-      portfolio_classname,
-      about_classname,
-      contact_classname,
-    } = this.state
+    const { index_classname, about_classname } = this.state
     return (
       <div className="navbar-container">
         <div className="navbar-list">
@@ -60,7 +40,7 @@ class Nav extends React.Component {
               style={{ color: "#536579", fontSize: "30px" }}
             />{" "}
             &nbsp;
-            <p>Martin's Portfolio</p>
+            <p>Martin's Folder</p>
           </div>
 
           <div className="navbar-pages-container">
@@ -86,35 +66,6 @@ class Nav extends React.Component {
                 <p>about.html</p>
               </Link>
             </div>
-            {/**
-             *
-             <div className="navbar-pages">
-              <FontAwesomeIcon
-                icon={faFile}
-                className={portfolio_classname}
-                style={{ fontSize: "30px", float: "left" }}
-              />
-              &nbsp;&nbsp;&nbsp;
-              <Link to="/portfolio">
-                <p>projects.html</p>
-              </Link>
-            </div>
-             */}
-
-            {/**
-            <div className="navbar-pages">
-              <FontAwesomeIcon
-                icon={faFile}
-                className={contact_classname}
-                style={{ fontSize: "30px", float: "left" }}
-              />
-              &nbsp;&nbsp;&nbsp;
-            
-            <Link to="/">
-              <p>contact.html</p>
-            </Link>
-            </div>
-            */}
           </div>
         </div>
       </div>
