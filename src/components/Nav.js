@@ -97,6 +97,7 @@ class Nav extends React.Component {
                 <p>projects.html</p>
               </Link>
             </div>
+            {/**
             <div className="navbar-pages">
               <FontAwesomeIcon
                 icon={faFile}
@@ -104,10 +105,12 @@ class Nav extends React.Component {
                 style={{ fontSize: "30px", float: "left" }}
               />
               &nbsp;&nbsp;&nbsp;
-              <Link to="/">
-                <p>contact.html</p>
-              </Link>
+            
+            <Link to="/">
+              <p>contact.html</p>
+            </Link>
             </div>
+            */}
           </div>
         </div>
       </div>
