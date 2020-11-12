@@ -52,11 +52,10 @@ class Bio extends React.Component {
                   Languages: Python; JavaScript, CSS and HTML; TypeScript;
                 </p>
                 <p className="tag-info">
-                  Database: PostgreSQL, Firebase, MongoDB (learning)
+                  Database: PostgreSQL; Firebase; MongoDB (loading);
                 </p>
-                <p className="tag-info">Libraries: React, Redux; Bootstrap</p>
                 <p className="tag-info">
-                  Frameworks: Django, DRF; Ionic 4; Angular;
+                  Frameworks & stuff: Django, DRF; Ionic 4; Angular; React.js;
                 </p>
                 <p className="tag-info">
                   Cloud Platforms: Azure; AWS EC2, S3; Telekom Cloud;
