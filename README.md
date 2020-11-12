@@ -51,4 +51,3 @@ markdownlint-cli --fix '**/*.md' --ignore node_modules
 ```bash
 spellchecker --files '**/*.md' -p frontmatter -d dictionary.txt
 ```
-markd
