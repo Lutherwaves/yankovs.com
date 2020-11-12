@@ -37,10 +37,10 @@ class Bio extends React.Component {
                   I'm from Stara Zagora, where I work as a full stack software
                   engineer at Tekom, a family-run construction company striving
                   to innnovate. I have 3 years of professional experience
-                  working as a software engineer with a focus on delivering
-                  simple and usable solutions to complex problems. When I am not
-                  working I like to experiment with food recipes, home
-                  automation technologies and DIY construction projects.{" "}
+                  working as a full-stack software engineer with a focus on
+                  delivering simple and usable solutions to complex problems.
+                  When I am not working I like to experiment with food recipes,
+                  home automation technologies and DIY construction projects.{" "}
                 </p>
                 <p>&#125;</p>
               </li>
@@ -49,10 +49,10 @@ class Bio extends React.Component {
                   <span style={{ color: "#94D381" }}>.skills</span> &#123;{" "}
                 </p>
                 <p className="tag-info">
-                  Languages: Python; JavaScript, CSS and HTML;
+                  Languages: Python; JavaScript, CSS and HTML; TypeScript;
                 </p>
                 <p className="tag-info">
-                  Database: PostgreSQL, MongoDB(learning)
+                  Database: PostgreSQL, Firebase, MongoDB (learning)
                 </p>
                 <p className="tag-info">Libraries: React, Redux; Bootstrap</p>
                 <p className="tag-info">
@@ -62,8 +62,7 @@ class Bio extends React.Component {
                   Cloud Platforms: Azure; AWS EC2, S3; Telekom Cloud;
                 </p>
                 <p className="tag-info">
-                  Other: Linux/Unix; Agile methodologies; Github; GitLab CI/CD;
-                  uWSGI; nGINX;{" "}
+                  Other: Linux/Unix; Github; GitLab CI/CD; uWSGI; nGINX;Scrum;
                 </p>
                 <p>&#125;</p>
               </li>
