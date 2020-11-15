@@ -14,12 +14,13 @@ class Bio extends React.Component {
         <div className="divider"></div>
 
         <div className="about-content-container">
-          <div className="comments">
+          {/**
+         <div className="comments">
             <p>// This is a comment.</p>
             <p>// This is another comment.</p>
             <p>// This is another comment for symmetry.</p>
           </div>
-
+ */}
           <div className="about-main-section">
             <ul className="about-list">
               <li>
@@ -49,27 +50,30 @@ class Bio extends React.Component {
                   <span style={{ color: "#94D381" }}>.skills</span> &#123;{" "}
                 </p>
                 <p className="tag-info">
-                  Languages: Python; JavaScript, CSS and HTML; TypeScript;
+                  <strong>Languages</strong>: Python 3; JavaScript (ES6);
+                  TypeScript; CSS/Sass, HTML/HTML5;
                 </p>
                 <p className="tag-info">
-                  Database: PostgreSQL; Firebase; MongoDB (loading);
+                  <strong>Technologies:</strong> Django / Django Rest Framework;
+                  Angular; React / Redux; Ionic and Cordova; Scrapy; SQLAlchemy;
+                  uWSGI; nGINX;
                 </p>
                 <p className="tag-info">
-                  Frameworks & stuff: Django, DRF; Ionic 4; Angular; React.js;
+                  <strong>Databases</strong>: PostgreSQL; Firebase; MongoDB
+                  (loading);
                 </p>
                 <p className="tag-info">
-                  Cloud Platforms: Azure; AWS EC2, S3; Telekom Cloud;
-                </p>
-                <p className="tag-info">
-                  Other: Linux/Unix; Github; GitLab CI/CD; uWSGI; nGINX;Scrum;
+                  <strong>Tools</strong>: Node.js; Bash; Git & Github; GitLab
+                  CI/CD; VS Code; Trello; Yarn / npm; XCode; Android Studio;
                 </p>
                 <p>&#125;</p>
               </li>
             </ul>
 
-            <div className="about-image-container">
+            {/**
+           <div className="about-image-container">
               <img src={picture} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
