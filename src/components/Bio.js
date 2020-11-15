@@ -70,9 +70,10 @@ class Bio extends React.Component {
               </li>
             </ul>
 
-            <div className="about-image-container">
+            {/**
+           <div className="about-image-container">
               <img src={picture} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
