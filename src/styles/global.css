@@ -185,12 +185,18 @@ header {
 }
 
 .divider {
-  height: 155vh;
+  height: 123vh;
   width: 0.25%;
   background-color: #2a3243;
   /* display: inline-block */
   float: left;
   margin-left: 2%;
+}
+
+@media ALL and (max-width: 1440px) {
+  .divider {
+    height: 151vh;
+  }
 }
 
 .project-container {
