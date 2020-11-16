@@ -3,28 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons"
 import Typist from "react-typist"
 import Delay from "react-delay"
-import { Link } from "gatsby"
 
 class Terminal extends Component {
-  // componentDidMount() {
-  //   if(window.location.href === "http://localhost:8000/") {
-  //     setTimeout(() => {
-  //       window.location.href = '/about';
-  //     }, 28000);
-  //   }
-  // }
-
   componentDidMount() {
+    // Redirect after terminal finishes typing
     setTimeout(() => {
       window.location.replace(`/about`)
-    }, 28000)
+    }, 21000)
   }
 
   render() {
+    // Grab terminal data
     const { command1, command2, name, description } = this.props.data
 
     var description_list = []
     var sentence = ""
+    // Split content into sentences
     for (var i = 0; i < description.length; i++) {
       if (description[i] === ">" || i === description.length - 1) {
         description_list.push(sentence.trim())
@@ -62,7 +56,7 @@ class Terminal extends Component {
           <Typist cursor={{ hideWhenDone: true }}>{command1}</Typist>
         </div>
 
-        <Delay wait={3000}>
+        <Delay wait={2000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -73,7 +67,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={6000}>
+        <Delay wait={4000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -81,12 +75,12 @@ class Terminal extends Component {
               style={{ color: "white", fontSize: "15px" }}
             />
             <Typist cursor={{ hideWhenDone: true }}>
-              Hi! My name is {name}
+              Hey, My name is {name}
             </Typist>
           </div>
         </Delay>
 
-        <Delay wait={10000}>
+        <Delay wait={6000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -99,7 +93,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={14000}>
+        <Delay wait={12000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -112,7 +106,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={19000}>
+        <Delay wait={17000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -125,7 +119,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={23000}>
+        <Delay wait={20000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
