@@ -8,7 +8,8 @@ class Bio extends React.Component {
         <div className="line-numbers">
           <p>
             1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
-            27 28 29 30 31 32 33 34
+            27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49
+            50
           </p>
         </div>
         <div className="divider"></div>
@@ -49,23 +50,115 @@ class Bio extends React.Component {
                 <p>
                   <span style={{ color: "#94D381" }}>.skills</span> &#123;{" "}
                 </p>
+
                 <p className="tag-info">
-                  <strong>Languages</strong>: Python 3; JavaScript (ES6);
-                  TypeScript; CSS/Sass, HTML/HTML5;
+                  <span style={{ color: "#8EE9FD" }}>
+                    <i>.languages</i>
+                  </span>{" "}
+                  &#123;{" "}
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>python</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>3</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>javascript</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'es6'</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>typescript</span>: true;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>css</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'sass'</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>html</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>5</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>sql</span>: &nbsp;
+                    <span>true</span>;{" "}
+                  </p>
+                  <p>&#125;</p>
                 </p>
                 <p className="tag-info">
-                  <strong>Technologies:</strong> Django / Django Rest Framework;
-                  Angular; React / Redux; Ionic and Cordova; Scrapy; SQLAlchemy;
-                  uWSGI; nGINX;
+                  <span style={{ color: "#8EE9FD" }}>
+                    <i>.technologies</i>
+                  </span>{" "}
+                  &#123;{" "}
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>django</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>3</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>
+                      django-rest-framework
+                    </span>
+                    : &nbsp;
+                    <span>true</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>react</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'^16.12.0'</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>redux</span>: &nbsp;
+                    <span>true</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>angular</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'^7.2.15'</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>ionic</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>5</span>;{" "}
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>postgresql</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'^10.15'</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>firebase</span>: &nbsp;
+                    <span>true</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>mongo-db</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'learning'</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>bash</span>: &nbsp;
+                    <span>true</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>node</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'js'</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>git</span>: &nbsp;
+                    <span>true</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>gitlab</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'ci/cd'</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>docker</span>: &nbsp;
+                    <span>true</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>trello</span>: &nbsp;
+                    <span>true</span>;
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>other</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>
+                      'uwsgi; nginx; sqlalchemy'
+                    </span>
+                    ;{" "}
+                  </p>
+                  <p>&#125;</p>
                 </p>
-                <p className="tag-info">
-                  <strong>Databases</strong>: PostgreSQL; Firebase; MongoDB
-                  (loading);
-                </p>
-                <p className="tag-info">
-                  <strong>Tools</strong>: Node.js; Bash; Git & Github; GitLab
-                  CI/CD; VS Code; Trello; Yarn / npm; XCode; Android Studio;
-                </p>
+
                 <p>&#125;</p>
               </li>
             </ul>
