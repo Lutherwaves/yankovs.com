@@ -26,14 +26,14 @@ class Bio extends React.Component {
             <ul className="about-list">
               <li>
                 <p>
-                  <span style={{ color: "#FF97FF" }}>.name</span> &#123;{" "}
+                  <span style={{ color: "#FF97FF" }}>.name</span>&nbsp; &#123;
                 </p>
                 <p className="tag-info">Martin Yankov</p>
                 <p>&#125;</p>
               </li>
               <li>
                 <p>
-                  <span style={{ color: "#86FFF8" }}>.bio</span> &#123;{" "}
+                  <span style={{ color: "#86FFF8" }}>.bio</span>&nbsp; &#123;
                 </p>
                 <p className="tag-info">
                   I'm from Stara Zagora, where I work as a full stack software
@@ -48,14 +48,14 @@ class Bio extends React.Component {
               </li>
               <li>
                 <p>
-                  <span style={{ color: "#94D381" }}>.skills</span> &#123;{" "}
+                  <span style={{ color: "#94D381" }}>.skills</span>&nbsp; &#123;
                 </p>
 
                 <p className="tag-info">
                   <span style={{ color: "#8EE9FD" }}>
                     <i>.languages</i>
-                  </span>{" "}
-                  &#123;{" "}
+                  </span>
+                  &nbsp; &#123;
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>python</span>: &nbsp;
                     <span style={{ color: "#50F683" }}>3</span>;
@@ -81,11 +81,12 @@ class Bio extends React.Component {
                   </p>
                   <p>&#125;</p>
                 </p>
+
                 <p className="tag-info">
                   <span style={{ color: "#8EE9FD" }}>
                     <i>.technologies</i>
-                  </span>{" "}
-                  &#123;{" "}
+                  </span>
+                  &nbsp; &#123;
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>django</span>: &nbsp;
                     <span style={{ color: "#50F683" }}>3</span>;
