@@ -49,7 +49,8 @@ class Bio extends React.Component {
                 <p>
                   <span style={{ color: "#94D381" }}>.skills</span>&nbsp; &#123;
                 </p>
-
+              </li>
+              <li>
                 <p className="tag-info">
                   <span style={{ color: "#8EE9FD" }}>
                     <i>.languages</i>
@@ -80,7 +81,8 @@ class Bio extends React.Component {
                   </p>
                   <p>&#125;</p>
                 </p>
-
+              </li>
+              <li>
                 <p className="tag-info">
                   <span style={{ color: "#8EE9FD" }}>
                     <i>.technologies</i>
