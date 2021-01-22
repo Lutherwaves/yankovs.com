@@ -35,13 +35,13 @@ class Bio extends React.Component {
                   <span style={{ color: "#86FFF8" }}>.bio</span>&nbsp; &#123;
                 </p>
                 <p className="tag-info">
-                  I'm from Stara Zagora, where I work as a full stack software
-                  engineer at Tekom, a family-run construction company striving
-                  to innnovate. I have 3 years of professional experience
-                  working as a full-stack software engineer with a focus on
-                  delivering simple and usable solutions to complex problems.
-                  When I am not working I like to experiment with food recipes,
-                  home automation technologies and DIY construction projects.{" "}
+                  I'm from Stara Zagora, where I'm currently working remotely as
+                  an SRE for VMWare. I have a couple of years of professional
+                  experience working as a full stack software engineer with a
+                  strong focus on delivering simple solutions to complex
+                  problems. When I am not working I like to experiment with
+                  food, home automation technologies and other kinds of DIY
+                  projects.
                 </p>
                 <p>&#125;</p>
               </li>
