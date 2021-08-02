@@ -35,13 +35,10 @@ class Bio extends React.Component {
                   <span style={{ color: "#86FFF8" }}>.bio</span>&nbsp; &#123;
                 </p>
                 <p className="tag-info">
-                  I'm from Stara Zagora, where I'm currently working remotely as
-                  an SRE for VMWare. I have a couple of years of professional
-                  experience working as a full stack software engineer with a
-                  strong focus on delivering simple solutions to complex
-                  problems. When I am not working I like to experiment with
-                  food, home automation technologies and other kinds of DIY
-                  projects.
+                  Full stack software engineer, quick learner and problem
+                  solver. Currently working as a Site Reliability Engineer. Love
+                  experimenting with food, diy and anything that catches my
+                  interest.
                 </p>
                 <p>&#125;</p>
               </li>
@@ -53,31 +50,71 @@ class Bio extends React.Component {
               <li>
                 <p className="tag-info">
                   <span style={{ color: "#8EE9FD" }}>
+                    <i>.misc</i>
+                  </span>
+                  &nbsp; &#123;
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>learner</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>communication</span>:
+                    &nbsp;
+                    <span style={{ color: "#50F683" }}>high</span>
+                  </p>
+                  <p>&#125;</p>
+                </p>
+              </li>
+              <li>
+                <p className="tag-info">
+                  <span style={{ color: "#8EE9FD" }}>
                     <i>.languages</i>
                   </span>
                   &nbsp; &#123;
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>python</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>3</span>;
+                    <span style={{ color: "#50F683" }}>'3'</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>ruby</span>: &nbsp;
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>terraform</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'^0.11.14'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>javascript</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'es6'</span>;{" "}
+                    <span style={{ color: "#50F683" }}>'es6'</span>
                   </p>
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>typescript</span>: true;{" "}
+                    <span style={{ color: "#FF524D" }}>typescript</span>: true
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>css</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'sass'</span>;{" "}
+                    <span style={{ color: "#50F683" }}>'sass'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>html</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>5</span>;{" "}
+                    <span style={{ color: "#50F683" }}>5</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>sql</span>: &nbsp;
-                    <span>true</span>;{" "}
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>bash</span>: &nbsp;
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>german</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'C1'</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>english</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>
+                      'full working proficiency'
+                    </span>
                   </p>
                   <p>&#125;</p>
                 </p>
@@ -89,74 +126,64 @@ class Bio extends React.Component {
                   </span>
                   &nbsp; &#123;
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>django</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>3</span>;
+                    <span style={{ color: "#FF524D" }}>aws</span>: &nbsp;
+                    <span>true</span>
                   </p>
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>
-                      django-rest-framework
-                    </span>
-                    : &nbsp;
-                    <span>true</span>;{" "}
+                    <span style={{ color: "#FF524D" }}>azure</span>: &nbsp;
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>gcp</span>: &nbsp;
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>scrapy</span>: &nbsp;
+                    <span>true</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>django</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>'3'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>react</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'^16.12.0'</span>;{" "}
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>redux</span>: &nbsp;
-                    <span>true</span>;{" "}
+                    <span style={{ color: "#50F683" }}>'^16.12.0'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>angular</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'^7.2.15'</span>;{" "}
+                    <span style={{ color: "#50F683" }}>'^7.2.15'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>ionic</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>5</span>;{" "}
+                    <span style={{ color: "#50F683" }}>5</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>postgresql</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'^10.15'</span>;
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>firebase</span>: &nbsp;
-                    <span>true</span>;
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>mongo-db</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'learning'</span>;
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>bash</span>: &nbsp;
-                    <span>true</span>;
+                    <span style={{ color: "#50F683" }}>'^10.15'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>node</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'js'</span>;
+                    <span style={{ color: "#50F683" }}>'js'</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>git</span>: &nbsp;
-                    <span>true</span>;
+                    <span>true</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>gitlab</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'ci/cd'</span>;
+                    <span style={{ color: "#50F683" }}>'ci/cd'</span>
+                  </p>
+                  <p className="tag-info-2">
+                    <span style={{ color: "#FF524D" }}>jenkins</span>: &nbsp;
+                    <span>true</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>docker</span>: &nbsp;
-                    <span>true</span>;
+                    <span>true</span>
                   </p>
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>trello</span>: &nbsp;
-                    <span>true</span>;
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>other</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>
-                      'uwsgi; nginx; sqlalchemy'
-                    </span>
-                    ;{" "}
+                    <span style={{ color: "#FF524D" }}>kubernetes</span>: &nbsp;
+                    <span>true</span>
                   </p>
                   <p>&#125;</p>
                 </p>
