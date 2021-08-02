@@ -9,7 +9,7 @@ class Terminal extends Component {
     // Redirect after terminal finishes typing
     setTimeout(() => {
       window.location.replace(`/about`)
-    }, 21000)
+    }, 15000)
   }
 
   render() {
@@ -75,7 +75,7 @@ class Terminal extends Component {
               style={{ color: "white", fontSize: "15px" }}
             />
             <Typist cursor={{ hideWhenDone: true }}>
-              Hey, My name is {name}
+              Hey, my name is {name}
             </Typist>
           </div>
         </Delay>
@@ -93,7 +93,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={12000}>
+        <Delay wait={9500}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
@@ -105,21 +105,7 @@ class Terminal extends Component {
             </Typist>
           </div>
         </Delay>
-
-        <Delay wait={17000}>
-          <div className="row">
-            <FontAwesomeIcon
-              icon={faAngleRight}
-              className="angle-right"
-              style={{ color: "white", fontSize: "15px" }}
-            />
-            <Typist cursor={{ hideWhenDone: true }}>
-              {description_list[2]}
-            </Typist>
-          </div>
-        </Delay>
-
-        <Delay wait={20000}>
+        <Delay wait={13000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
