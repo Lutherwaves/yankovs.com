@@ -112,7 +112,7 @@ class Terminal extends Component {
               className="angle-right"
               style={{ color: "white", fontSize: "15px" }}
             />
-            Got your attention? (Yes / No): &nbsp;
+            Shall we? (Yes / No): &nbsp;
             <Typist cursor={{ hideWhenDone: true }}>
               <Typist.Delay ms={900} />
               Yes
