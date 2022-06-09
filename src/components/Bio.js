@@ -36,9 +36,9 @@ class Bio extends React.Component {
                 </p>
                 <p className="tag-info">
                   Full stack software engineer, quick learner and problem
-                  solver. Currently working as a Site Reliability Engineer. Love
-                  experimenting with food, diy and anything that catches my
-                  interest.
+                  solver. Aspirant leader, father and husband. Love
+                  experimenting with food, diy projects of any shape or form and
+                  anything that catches my interest.
                 </p>
                 <p>&#125;</p>
               </li>
@@ -91,30 +91,16 @@ class Bio extends React.Component {
                     <span style={{ color: "#FF524D" }}>typescript</span>: true
                   </p>
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>css</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'sass'</span>
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>html</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>5</span>
+                    <span style={{ color: "#FF524D" }}>node</span>: &nbsp;
+                    <span style={{ color: "#50F683" }}>express</span>
                   </p>
                   <p className="tag-info-2">
                     <span style={{ color: "#FF524D" }}>sql</span>: &nbsp;
-                    <span>true</span>
+                    <span>PostgreSQL</span>
                   </p>
                   <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>bash</span>: &nbsp;
-                    <span>true</span>
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>german</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>'C1'</span>
-                  </p>
-                  <p className="tag-info-2">
-                    <span style={{ color: "#FF524D" }}>english</span>: &nbsp;
-                    <span style={{ color: "#50F683" }}>
-                      'full working proficiency'
-                    </span>
+                    <span style={{ color: "#FF524D" }}>nosql</span>: &nbsp;
+                    <span>Cassandra | DynamoDB</span>
                   </p>
                   <p>&#125;</p>
                 </p>
