@@ -93,7 +93,7 @@ class Terminal extends Component {
           </div>
         </Delay>
 
-        <Delay wait={9500}>
+        <Delay wait={8000}>
           <div className="row">
             <FontAwesomeIcon
               icon={faAngleRight}
