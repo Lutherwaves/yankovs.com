@@ -3,7 +3,7 @@ type: "Terminal"
 command1: "~/cd yankovs.com"
 command2: "~/ cat < index.html"
 name: "Martin"
-description: "This website is still a work in progress, > but let's take a look at the next page, since you're already here anyways."
+description: "Welcome to my personal website! > I'm an engineer at work and a chef at heart > You can learn more about me on the next page "
 # image: "../../images/demo-pic.jpg"
 ---
 
