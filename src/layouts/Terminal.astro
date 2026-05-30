@@ -1,0 +1,47 @@
+---
+import "../styles/global.css";
+import StatusBar from "../components/StatusBar.astro";
+import Nav from "../components/Nav.astro";
+
+interface Props {
+  title: string;
+  route: string;
+  description?: string;
+  updated?: string;
+}
+const { title, route, description, updated } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        const theme = stored ?? system ?? "dark";
+        if (theme === "light") document.documentElement.dataset.theme = "light";
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <StatusBar route={route} updated={updated} />
+    <main class="px-4 py-6 flex-1">
+      <slot />
+    </main>
+    <Nav current={route} />
+    <script>
+      const btn = document.getElementById("theme-toggle");
+      btn?.addEventListener("click", () => {
+        const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        if (next === "light") document.documentElement.dataset.theme = "light";
+        else delete document.documentElement.dataset.theme;
+        localStorage.setItem("theme", next);
+      });
+    </script>
+  </body>
+</html>

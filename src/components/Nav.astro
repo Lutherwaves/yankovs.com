@@ -1,0 +1,29 @@
+---
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+const items = [
+  { cmd: "cd about",    href: "/about" },
+  { cmd: "cd now",      href: "/now" },
+  { cmd: "cd building", href: "/building" },
+  { cmd: "cd contact",  href: "/contact" },
+  { cmd: "open blog.yankovs.com", href: "https://blog.yankovs.com", external: true },
+];
+---
+<nav class="px-4 py-6 mt-8">
+  {items.map(({ cmd, href, external }) => {
+    const isCurrent = href === current;
+    if (isCurrent) {
+      return <div class="dim">$ {cmd}</div>;
+    }
+    return (
+      <div>
+        $ <a href={href} {...(external ? { target: "_blank", rel: "noopener" } : {})}>{cmd}</a>
+      </div>
+    );
+  })}
+  <div class="mt-4">
+    $ <button id="theme-toggle" class="underline" style="color: var(--accent); background: none; border: none; cursor: pointer; font: inherit;">theme toggle</button>
+  </div>
+</nav>
