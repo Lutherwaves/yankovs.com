@@ -4,6 +4,7 @@ interface Props {
 }
 const { current } = Astro.props;
 const items = [
+  { cmd: "cd ~",        href: "/" },
   { cmd: "cd about",    href: "/about" },
   { cmd: "cd now",      href: "/now" },
   { cmd: "cd building", href: "/building" },
@@ -19,11 +20,11 @@ const items = [
     }
     return (
       <div>
-        $ <a href={href} {...(external ? { target: "_blank", rel: "noopener" } : {})}>{cmd}</a>
+        $ <a href={href} {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{cmd}</a>
       </div>
     );
   })}
   <div class="mt-4">
-    $ <button id="theme-toggle" class="underline" style="color: var(--accent); background: none; border: none; cursor: pointer; font: inherit;">theme toggle</button>
+    $ <button id="theme-toggle" aria-label="Toggle color theme" class="underline" style="color: var(--accent); background: none; border: none; cursor: pointer; font: inherit;">theme toggle</button>
   </div>
 </nav>
