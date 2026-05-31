@@ -20,11 +20,12 @@ const { title, section, summary, date } = Astro.props;
 
     <footer class="manpage-footer dim mt-12">
       <span>YANKOVS({section})</span>
-      <span>{date}</span>
+      <time datetime={date}>{date}</time>
     </footer>
   </article>
 </Terminal>
 
+<!-- global: scoped styles can't reach slotted MDX content (the `##` headings) -->
 <style is:global>
   .manpage .section-head {
     color: var(--accent);
