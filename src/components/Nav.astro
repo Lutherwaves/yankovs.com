@@ -3,13 +3,14 @@ interface Props {
   current: string;
 }
 const { current } = Astro.props;
-const items = [
+const items: { cmd: string; href: string; external?: boolean }[] = [
   { cmd: "cd ~",        href: "/" },
   { cmd: "cd about",    href: "/about" },
   { cmd: "cd now",      href: "/now" },
   { cmd: "cd building", href: "/building" },
   { cmd: "cd contact",  href: "/contact" },
-  { cmd: "open blog.yankovs.com", href: "https://blog.yankovs.com", external: true },
+  { cmd: "cd blog", href: "/blog" },
+  { cmd: "cat rss.xml", href: "/rss.xml" },
 ];
 ---
 <nav class="px-4 py-6 mt-8">
