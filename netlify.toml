@@ -1,5 +1,8 @@
 [build]
-  command = "npm run build"
+  # The stale UI-origin @netlify/plugin-gatsby (unremovable from our side) writes
+  # <repo>/.cache/imageCdnEncryptionConfig.json in its build callback via fs-extra
+  # writeJSON, which does not create parent dirs. Pre-create .cache so it succeeds.
+  command = "npm run build && mkdir -p .cache"
   publish = "dist"
 
 [build.environment]
