@@ -1,0 +1,23 @@
+---
+title: building-a-terminal-blog
+section: 1
+summary: building a blog that reads like a man page
+date: 2026-05-31
+---
+
+## Synopsis
+
+`cat ~/blog/building-a-terminal-blog.mdx`
+
+## Description
+
+This blog renders like a Unix man page. Posts are MDX files; the layout wraps
+them in the familiar NAME / DESCRIPTION structure, caps the section headings, and
+footers each page with `YANKOVS(1)` and the date.
+
+Write a post by dropping an `.mdx` file in `src/content/blog`. The `##` headings
+become man-style section headers automatically.
+
+## See also
+
+`ls ~/blog`, `/rss.xml`
