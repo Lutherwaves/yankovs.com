@@ -1,0 +1,49 @@
+---
+---
+<div id="boot">
+  <div id="boot-output" aria-live="off"></div>
+</div>
+
+<script>
+  const sequence = [
+    { kind: "prompt", text: "$ whoami" },
+    { kind: "out",    text: "Martin Yankov" },
+    { kind: "prompt", text: "$ cat intro.md" },
+    { kind: "out",    text: "Hi, I'm Martin." },
+    { kind: "out",    text: "" },
+    { kind: "out",    text: "I'm a builder — software, mostly, and whatever else needs making." },
+    { kind: "out",    text: "I try to build things that help more than they hurt to use." },
+  ];
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const seen = sessionStorage.getItem("boot-played") === "1";
+  const out = document.getElementById("boot-output")!;
+
+  const appendLine = (s: { kind: string; text: string }) => {
+    const line = document.createElement("div");
+    if (s.kind === "prompt") line.className = "dim";
+    line.textContent = s.text;
+    out.appendChild(line);
+    return line;
+  };
+
+  if (reduce || seen) {
+    for (const s of sequence) appendLine(s);
+  } else {
+    sessionStorage.setItem("boot-played", "1");
+    (async () => {
+      for (const s of sequence) {
+        const line = appendLine({ kind: s.kind, text: "" });
+        if (s.kind === "prompt") {
+          line.textContent = s.text;
+          await new Promise((r) => setTimeout(r, 250));
+        } else {
+          for (const ch of s.text) {
+            line.textContent += ch;
+            await new Promise((r) => setTimeout(r, 30));
+          }
+        }
+      }
+    })();
+  }
+</script>

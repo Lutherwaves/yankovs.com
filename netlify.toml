@@ -1,0 +1,12 @@
+[build]
+  # The stale UI-origin @netlify/plugin-gatsby (unremovable from our side) writes
+  # <repo>/.cache/imageCdnEncryptionConfig.json in its build callback via fs-extra
+  # writeJSON, which does not create parent dirs. Pre-create .cache so it succeeds.
+  command = "npm run build && mkdir -p .cache"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Neutralize the stale UI-origin @netlify/plugin-gatsby (this is no longer a Gatsby site).
+  # Removing from netlify.toml can't disable a UI-origin plugin, so we skip its build work instead.
+  NETLIFY_SKIP_GATSBY_FUNCTIONS = "true"

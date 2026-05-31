@@ -1,0 +1,15 @@
+---
+interface Props {
+  route: string;
+  updated?: string;
+}
+const { route, updated } = Astro.props;
+const date = updated ?? new Date().toISOString().slice(0, 10);
+---
+<header class="border-b px-4 py-1 text-[13px] dim" style="border-color: var(--border)">
+  <span>martin@yankovs.com</span>
+  <span class="mx-2">·</span>
+  <span>~{route}</span>
+  <span class="mx-2">·</span>
+  <span>{date}</span>
+</header>
