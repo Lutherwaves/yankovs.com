@@ -4,3 +4,6 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Neutralize the stale UI-origin @netlify/plugin-gatsby (this is no longer a Gatsby site).
+  # Removing from netlify.toml can't disable a UI-origin plugin, so we skip its build work instead.
+  NETLIFY_SKIP_GATSBY_FUNCTIONS = "true"
