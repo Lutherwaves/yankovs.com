@@ -11,8 +11,8 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
   <p class="dim">$ ls ~/blog</p>
   <ul class="mt-4 list-none">
     {posts.map((p) => (
-      <li class="blog-entry">
-        <a href={`/blog/${p.id}`}>{p.data.title}({p.data.section})</a>
+      <li>
+        <a href={`/blog/${p.id}/`}>{p.data.title}({p.data.section})</a>
         <span class="ml-2">{p.data.summary}</span>
         <span class="dim ml-2">{fmt(p.data.date)}</span>
       </li>
