@@ -1,0 +1,53 @@
+---
+import Terminal from "./Terminal.astro";
+interface Props {
+  title: string;
+  section: number;
+  summary: string;
+  date: string;
+}
+const { title, section, summary, date } = Astro.props;
+---
+<Terminal title={`${title}(${section}) — yankovs.com`} route="/blog" description={summary}>
+  <article class="manpage">
+    <p class="section-head">NAME</p>
+    <p class="indent">{title} – {summary}</p>
+
+    <p class="section-head mt-6">DESCRIPTION</p>
+    <div class="indent">
+      <slot />
+    </div>
+
+    <footer class="manpage-footer dim mt-12">
+      <span>YANKOVS({section})</span>
+      <time datetime={date}>{date}</time>
+    </footer>
+  </article>
+</Terminal>
+
+<!-- global: scoped styles can't reach slotted MDX content (the `##` headings) -->
+<style is:global>
+  .manpage .section-head {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .manpage .indent { margin-left: 2rem; }
+  /* MDX `##` headings render as man-style section headers */
+  .manpage h2 {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 1.5rem 0 0.5rem;
+  }
+  .manpage h2 + * { margin-left: 0; }
+  .manpage-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 0.5rem;
+    font-size: 13px;
+  }
+</style>

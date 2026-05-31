@@ -1,0 +1,22 @@
+---
+import Terminal from "../../layouts/Terminal.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+<Terminal title="Martin Yankov — blog" route="/blog" description="Notes, rendered like man pages.">
+  <p class="dim">$ ls ~/blog</p>
+  <ul class="mt-4 list-none">
+    {posts.map((p) => (
+      <li>
+        <a href={`/blog/${p.id}/`}>{p.data.title}({p.data.section})</a>
+        <span class="ml-2">{p.data.summary}</span>
+        <span class="dim ml-2">{fmt(p.data.date)}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="dim mt-8">$ <a href="/rss.xml">cat rss.xml</a></p>
+</Terminal>
