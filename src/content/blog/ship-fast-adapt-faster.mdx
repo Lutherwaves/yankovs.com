@@ -23,17 +23,17 @@ Both are half right, which is the most dangerous kind of right.
 Ship fast with nothing else and you build the wrong thing at high speed. Be
 careful with nothing else and you die slowly while someone less careful learns
 faster than you. The two camps are arguing about the wrong axis. Speed isn't the
-opposite of rigor. The thing that makes speed safe is rigor — applied to the
+opposite of rigor. The thing that makes speed safe is rigor, applied to the
 right step.
 
-Here's the loop I actually run: **ship fast, adapt faster, question everything.**
+The loop I run: **ship fast, adapt faster, question everything.**
 
 Everyone says AI made them ship faster. Be honest: it's *net* faster, not *way*
-faster. The real shift isn't speed per feature — it's that a feature that used to
+faster. The real shift isn't speed per feature. It's that a feature that used to
 need a team of ten to spec, crowd-write, and review, you can now hold in your head
 and build alone. So the pile of things you *could* build exploded. And that's what
 killed "we'll fix it later." When MVP and MVP+1 land in the same PR, fully
-unit-tested, every time — "later" stops being a phase. It's just a lie you tell to
+unit-tested, every time, "later" stops being a phase. It's just a lie you tell to
 ship a mess.
 
 ## Ship fast
@@ -42,19 +42,19 @@ The point of shipping is not the artifact. It's the feedback.
 
 Unshipped code is a theory. It's a thing you believe is true about the world that
 the world has not yet confirmed or denied. Every day it sits on your machine, you
-pay interest on a guess. Shipping is how you turn the guess into a fact — good or
+pay interest on a guess. Shipping is how you turn the guess into a fact. Good or
 bad, but a fact you can act on.
 
-So ship before it's ready, because "ready" is a feeling and feelings lie. Ship
-the version that's embarrassing-but-true over the version that's polished-but-
-hypothetical. The embarrassing one teaches you something this week.
+So ship before it's ready, because "ready" is a feeling and feelings lie. Ship the
+embarrassing version that's true over the polished version that's hypothetical. The
+embarrassing one teaches you something this week.
 
 ## Adapt faster
 
 This is the verb everyone in the *move fast* camp forgets.
 
 Shipping fast is worthless if you won't change course faster. If you ship daily
-but defend every decision like it's load-bearing, you're not fast — you're just
+but defend every decision like it's load-bearing, you're not fast. You're just
 accumulating mistakes at a higher frequency.
 
 The most expensive bug is building the wrong thing perfectly. You don't fix that
@@ -63,18 +63,17 @@ moment the feedback says you bet wrong. Don't marry the build. The build is a
 hypothesis you're trying to kill, and the faster you kill the bad ones, the
 faster the good one survives.
 
-Everyone agrees the hard part now is knowing *what* to build. Here's the catch:
-the answer usually shows up after you build it, not before. So the moat isn't a
-great idea — it's the speed at which you can destroy your own. Killing your ideas
-faster than you make them used to look like overthinking. Now it looks like an
-edge.
+Everyone agrees the hard part now is knowing *what* to build. The catch: the
+answer usually shows up after you build it, not before. So the moat isn't a great
+idea. It's the speed at which you can destroy your own. Killing your ideas faster
+than you make them used to look like overthinking. Now it looks like an edge.
 
 ## Question everything
 
 Ship fast and adapt faster are the engine. Questioning is the steering.
 
 A few weeks ago my own site was lying to people. `www.yankovs.com` loaded with a
-clean padlock. `yankovs.com` — the bare domain — threw a browser security warning.
+clean padlock. `yankovs.com`, the bare domain, threw a browser security warning.
 Same site, two doors, one of them screaming *insecure*.
 
 The fast fix is obvious: the certificate is stale, click renew, move on. That fix
@@ -83,11 +82,11 @@ nothing.
 
 So before touching anything: *why* is only the apex broken? That one question did
 all the work. The apex was serving the wrong certificate because the certificate
-authority could never verify the domain — and it couldn't verify because the
-domain was quietly resolving to three different IPs, two of them stale parking
-records injected by a forwarding setting I'd turned on years ago and forgotten.
-The renew button was never the problem. The problem was three houses down the
-street, and the only way to see it was to refuse the obvious fix and ask why first.
+authority could never verify the domain. And it couldn't verify because the domain
+was quietly resolving to three different IPs, two of them stale parking records
+injected by a forwarding setting I'd turned on years ago and forgotten. The renew
+button was never the problem. The actual problem was somewhere else entirely, and
+the only way to see it was to refuse the obvious fix and ask why first.
 
 Shipping fast gets you to the bug. Adapting fast gets you off the bad approach.
 But *question everything* is the part that points you at the right wall before you
@@ -99,16 +98,16 @@ debugging session is the one solving a problem you don't actually have.
 The three aren't a sequence, they're a loop, and they run at different speeds on
 purpose. Ship at the speed of "good enough to learn." Adapt at the speed of the
 feedback. Question constantly, in the background, especially when something is
-working — *especially* then.
+working. *Especially* then.
 
-And none of it counts until someone else uses it. You can ship and adapt at
-light speed and still hit the one wall that won't move: a human needs time to
-live with the thing before their feedback means anything. The only shortcut is
-building it so their AI uses it too — then even validation speeds up.
+And none of it counts until someone else uses it. You can ship and adapt at light
+speed and still hit the one limit that won't move: a human needs time to live with
+the thing before their feedback means anything. The only shortcut is building it so
+their AI uses it too. Then even validation speeds up.
 
-Here's the joke at the end of it. If everyone moves at light speed, nothing is
-fast. It's all relative. We sped everything up and landed right back at normal —
-running flat out, standing still.
+The joke at the end of it: if everyone moves at light speed, nothing is fast. It's
+all relative. We sped everything up and landed right back at normal. Running flat
+out, standing still.
 
 ## See also
 
