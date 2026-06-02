@@ -1,0 +1,109 @@
+---
+title: ship-fast-adapt-faster
+section: 1
+summary: velocity is a byproduct of good questions, not a substitute for them
+date: 2026-06-02
+draft: true
+---
+
+## Synopsis
+
+`while true; do ship; question; adapt; done`
+
+## Description
+
+There are two tribes and they hate each other.
+
+One says *move fast and break things*. Ship daily, ship ugly, momentum is the
+only moat. The other says *measure twice, cut once*. Slow down, think, don't
+make a mess you have to clean up later.
+
+Both are half right, which is the most dangerous kind of right.
+
+Ship fast with nothing else and you build the wrong thing at high speed. Be
+careful with nothing else and you die slowly while someone less careful learns
+faster than you. The two camps are arguing about the wrong axis. Speed isn't the
+opposite of rigor. The thing that makes speed safe is rigor — applied to the
+right step.
+
+Here's the loop I actually run: **ship fast, adapt faster, question everything.**
+
+{/* TODO(martin): open with a 2-3 sentence personal hook in your voice — a recent
+moment where you shipped something, it was wrong, and you were glad you'd shipped
+because that's how you found out. This is the line that earns the reader. Mine
+below is a placeholder; yours will be better. */}
+
+## Ship fast
+
+The point of shipping is not the artifact. It's the feedback.
+
+Unshipped code is a theory. It's a thing you believe is true about the world that
+the world has not yet confirmed or denied. Every day it sits on your machine, you
+pay interest on a guess. Shipping is how you turn the guess into a fact — good or
+bad, but a fact you can act on.
+
+So ship before it's ready, because "ready" is a feeling and feelings lie. Ship
+the version that's embarrassing-but-true over the version that's polished-but-
+hypothetical. The embarrassing one teaches you something this week.
+
+## Adapt faster
+
+This is the verb everyone in the *move fast* camp forgets.
+
+Shipping fast is worthless if you won't change course faster. If you ship daily
+but defend every decision like it's load-bearing, you're not fast — you're just
+accumulating mistakes at a higher frequency.
+
+The most expensive bug is building the wrong thing perfectly. You don't fix that
+bug with better code. You fix it by being willing to throw the code away the
+moment the feedback says you bet wrong. Don't marry the build. The build is a
+hypothesis you're trying to kill, and the faster you kill the bad ones, the
+faster the good one survives.
+
+{/* TODO(martin): if you want one sanitized Blox moment — a decision you reversed
+fast, no product details — drop it here. It's the most on-mission paragraph in the
+post and the hardest for me to write without knowing the product. Totally fine to
+cut and lean on the cert story below instead. */}
+
+## Question everything
+
+Ship fast and adapt faster are the engine. Questioning is the steering.
+
+A few weeks ago my own site was lying to people. `www.yankovs.com` loaded with a
+clean padlock. `yankovs.com` — the bare domain — threw a browser security warning.
+Same site, two doors, one of them screaming *insecure*.
+
+The fast fix is obvious: the certificate is stale, click renew, move on. That fix
+would have failed, and I'd have clicked renew again, and again, and learned
+nothing.
+
+So before touching anything: *why* is only the apex broken? That one question did
+all the work. The apex was serving the wrong certificate because the certificate
+authority could never verify the domain — and it couldn't verify because the
+domain was quietly resolving to three different IPs, two of them stale parking
+records injected by a forwarding setting I'd turned on years ago and forgotten.
+The renew button was never the problem. The problem was three houses down the
+street, and the only way to see it was to refuse the obvious fix and ask why first.
+
+Shipping fast gets you to the bug. Adapting fast gets you off the bad approach.
+But *question everything* is the part that points you at the right wall before you
+start banging your head on it. Small steps, lots of questions. The most expensive
+debugging session is the one solving a problem you don't actually have.
+
+## Exit status
+
+The three aren't a sequence, they're a loop, and they run at different speeds on
+purpose. Ship at the speed of "good enough to learn." Adapt at the speed of the
+feedback. Question constantly, in the background, especially when something is
+working — *especially* then.
+
+Move fast and break things, sure. Just question which things, and adapt before
+they break you.
+
+{/* TODO(martin): closing line. Make it land. One sentence, your voice. Optional:
+end on whether building something quietly right now is teaching you this in real
+time — without naming it. */}
+
+## See also
+
+`ls ~/blog`, `building-a-terminal-blog(1)`
