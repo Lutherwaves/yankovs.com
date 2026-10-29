@@ -11,39 +11,61 @@
     { kind: "prompt", text: "$ cat intro.md" },
     { kind: "out",    text: "Hi, I'm Martin." },
     { kind: "out",    text: "" },
-    { kind: "out",    text: "I'm a builder — software, mostly, and whatever else needs making." },
-    { kind: "out",    text: "I try to build things that help more than they hurt to use." },
+    { kind: "out",    text: "I'm an opinionated builder." },
+    { kind: "out",    text: "I think software should be cool to use and make you feel good." },
+    { kind: "out",    text: "If it doesn't, I rebuild it." },
+    { kind: "out",    text: "" },
+    { kind: "out",    text: "Right now: the next legal OS for modern lawyers, at Lexroom.ai." },
+    { kind: "prompt", text: "# what's your excuse not to be the best version of yourself?" },
+    { kind: "prompt", text: "$ excuses" },
+    { kind: "out",    text: "zsh: command not found: excuses" },
   ];
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const seen = sessionStorage.getItem("boot-played") === "1";
+  let seen = false;
+  try {
+    seen = sessionStorage.getItem("boot-played") === "1";
+  } catch {}
   const out = document.getElementById("boot-output")!;
 
   const appendLine = (s: { kind: string; text: string }) => {
     const line = document.createElement("div");
+    line.style.minHeight = "1lh";
     if (s.kind === "prompt") line.className = "dim";
     line.textContent = s.text;
     out.appendChild(line);
     return line;
   };
 
+  const done = () => {
+    document.documentElement.dataset.boot = "done";
+    document.dispatchEvent(new Event("boot:done"));
+  };
+
   if (reduce || seen) {
     for (const s of sequence) appendLine(s);
+    done();
   } else {
-    sessionStorage.setItem("boot-played", "1");
+    try {
+      sessionStorage.setItem("boot-played", "1");
+    } catch {}
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
     (async () => {
-      for (const s of sequence) {
-        const line = appendLine({ kind: s.kind, text: "" });
-        if (s.kind === "prompt") {
-          line.textContent = s.text;
-          await new Promise((r) => setTimeout(r, 250));
-        } else {
-          for (const ch of s.text) {
-            line.textContent += ch;
-            await new Promise((r) => setTimeout(r, 30));
-          }
+      for (const [i, s] of sequence.entries()) {
+        if (s.kind === "out") {
+          appendLine(s);
+          if (sequence[i + 1]?.kind === "prompt") await wait(400);
+          continue;
         }
+        const typed = s.text.startsWith("$ ") ? "$ " : "";
+        const line = appendLine({ kind: s.kind, text: typed });
+        for (const ch of s.text.slice(typed.length)) {
+          line.textContent += ch;
+          await wait(45);
+        }
+        await wait(250);
       }
+      done();
     })();
   }
 </script>

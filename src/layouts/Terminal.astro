@@ -23,7 +23,10 @@ const { title, route, description, updated } = Astro.props;
     <script defer src="https://eu.umami.is/script.js" data-website-id="e2c2ed80-0396-46ec-9f2e-14e75a8c7f09"></script>
     <script is:inline>
       (() => {
-        const stored = localStorage.getItem("theme");
+        let stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch {}
         const system = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
         const theme = stored ?? system ?? "dark";
         if (theme === "light") document.documentElement.dataset.theme = "light";
@@ -42,7 +45,9 @@ const { title, route, description, updated } = Astro.props;
         const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
         if (next === "light") document.documentElement.dataset.theme = "light";
         else delete document.documentElement.dataset.theme;
-        localStorage.setItem("theme", next);
+        try {
+          localStorage.setItem("theme", next);
+        } catch {}
       });
     </script>
   </body>

@@ -1,0 +1,37 @@
+---
+import Terminal from "../layouts/Terminal.astro";
+
+const bills = [
+  { name: "claude code", share: 16, note: "the dev seat" },
+  { name: "apple developer", share: 5, note: "the iOS builds" },
+  { name: "github ci/cd", share: 4, note: "grows with every push" },
+  { name: "domains", share: 2, note: "the .sh and .org names" },
+];
+const bar = (share: number, cells: number) => "█".repeat(share) + "░".repeat(cells - share);
+
+const sponsoring = [
+  { name: "open-webui", href: "https://github.com/sponsors/open-webui" },
+  { name: "llama.cpp", href: "https://github.com/sponsors/ggerganov" },
+  { name: "openclaw", href: "https://github.com/sponsors/openclaw" },
+];
+---
+<Terminal title="Martin Yankov — sponsor" route="/sponsor" description="Sponsor Martin's open source.">
+  <p class="dim">$ cat sponsor.md</p>
+  <p class="mt-4">I build open source, opinionated, made to feel good to use.</p>
+  <p>If something I made made your day better, you can help keep it running.</p>
+  <p>$1 is as welcome as $100. It's not the money. It's the signal.</p>
+
+  <p class="dim mt-8">$ bills --by-share</p>
+  <pre class="mt-2 hidden sm:block" aria-hidden="true">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(b.share, 20)}  <span class="dim">{b.note}</span></div>)}</pre>
+  <pre class="mt-2 sm:hidden" aria-hidden="true">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(Math.ceil(b.share / 2), 10)}<div class="dim">  {b.note}</div></div>)}</pre>
+  <p class="sr-only">Bills by share: claude code largest, then apple developer, github ci/cd and domains.</p>
+
+  <p class="dim mt-8">$ cat ~/sponsoring</p>
+  <p class="mt-2">♥ {sponsoring.map((s, i) => <>{i > 0 && " · "}<a href={s.href}>{s.name}</a></>)}</p>
+  <p>I sponsor them too. That's the deal: we hold each other up.</p>
+
+  <p class="dim mt-8">$ sponsor --without-money</p>
+  <p class="mt-2"><a href="https://github.com/Lutherwaves">★ star a repo</a> · open an issue · tell a friend</p>
+
+  <p class="mt-8"><a href="https://github.com/sponsors/Lutherwaves" class="underline">[ ♥ sponsor on github ]</a></p>
+</Terminal>

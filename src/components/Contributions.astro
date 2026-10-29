@@ -1,0 +1,140 @@
+---
+---
+<section id="contrib" class="mt-6">
+  <p class="dim">$ git contributions --last-year</p>
+  <p id="contrib-label"><a href="https://github.com/Lutherwaves">contributions unavailable · see github.com/Lutherwaves</a></p>
+  <div id="contrib-chart" hidden>
+    <div id="contrib-scroll" class="mt-2 overflow-x-auto" aria-hidden="true">
+      <div id="contrib-graph"></div>
+    </div>
+    <p class="contrib-legend dim" aria-hidden="true">
+      Less
+      <span class="contrib-cell" data-level="0"></span><span class="contrib-cell" data-level="1"></span><span class="contrib-cell" data-level="2"></span><span class="contrib-cell" data-level="3"></span><span class="contrib-cell" data-level="4"></span>
+      More
+    </p>
+  </div>
+  <p class="mt-6">$ <a href="/sponsor">cd sponsor ♥</a></p>
+</section>
+
+<style is:global>
+  #contrib-graph {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 15px repeat(7, 11px);
+    grid-template-columns: 28px;
+    grid-auto-columns: 11px;
+    gap: 3px;
+    width: max-content;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  #contrib-graph .contrib-month {
+    grid-row: 1;
+    white-space: nowrap;
+  }
+  #contrib-graph .contrib-day {
+    line-height: 11px;
+  }
+  .contrib-cell {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    background: var(--contrib-0);
+  }
+  .contrib-cell[data-level="1"] { background: var(--contrib-1); }
+  .contrib-cell[data-level="2"] { background: var(--contrib-2); }
+  .contrib-cell[data-level="3"] { background: var(--contrib-3); }
+  .contrib-cell[data-level="4"] { background: var(--contrib-4); }
+  .contrib-legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+  }
+</style>
+
+<script>
+  import { API_URL, parseCalendar, readCache, writeCache, toWeeks, monthLabels, type Calendar } from "../lib/contributions";
+
+  const DAY_LABELS: Record<number, string> = { 1: "Mon", 3: "Wed", 5: "Fri" };
+
+  const section = document.getElementById("contrib")!;
+  const label = document.getElementById("contrib-label")!;
+  const chart = document.getElementById("contrib-chart")!;
+  const scroll = document.getElementById("contrib-scroll")!;
+  const graph = document.getElementById("contrib-graph")!;
+
+  let storage: Storage | null = null;
+  try {
+    storage = window.localStorage;
+  } catch {}
+
+  let calendar: Calendar | null = null;
+
+  const span = (className: string, text = "") => {
+    const node = document.createElement("span");
+    node.className = className;
+    node.textContent = text;
+    return node;
+  };
+
+  const render = () => {
+    if (!calendar || section.hidden) return;
+    const weeks = toWeeks(calendar.days);
+    const months = monthLabels(weeks);
+    const nodes = [span("contrib-day dim")];
+    for (let row = 0; row < 7; row++) nodes.push(span("contrib-day dim", DAY_LABELS[row]));
+    weeks.forEach((week, i) => {
+      nodes.push(span("contrib-month dim", months[i]));
+      for (let row = 0; row < 7; row++) {
+        const day = week[row];
+        const cell = span("contrib-cell");
+        if (day) {
+          cell.dataset.level = String(day.level);
+          cell.title = `${day.count} contribution${day.count === 1 ? "" : "s"} on ${day.date}`;
+        } else cell.style.visibility = "hidden";
+        nodes.push(cell);
+      }
+    });
+    graph.replaceChildren(...nodes);
+
+    const link = document.createElement("a");
+    link.href = "https://github.com/Lutherwaves";
+    link.textContent = "github.com/Lutherwaves";
+    label.replaceChildren(`${calendar.total.toLocaleString("en-US")} contributions · `, link);
+    chart.hidden = false;
+    scroll.scrollLeft = scroll.scrollWidth;
+  };
+
+  const unavailable = [...label.childNodes];
+  const fail = () => {
+    if (!calendar) label.replaceChildren(...unavailable);
+  };
+
+  const cached = readCache(storage, Date.now());
+  if (cached) calendar = cached.calendar;
+  else label.textContent = "loading contributions…";
+  if (!cached?.fresh) {
+    fetch(API_URL, { signal: AbortSignal.timeout(8000) })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((json) => {
+        const fetched = parseCalendar(json);
+        if (!fetched) return fail();
+        calendar = fetched;
+        writeCache(storage, fetched, Date.now());
+        render();
+      })
+      .catch(fail);
+  }
+
+  const reveal = () => {
+    section.hidden = false;
+    render();
+  };
+  if (document.documentElement.dataset.boot === "done") reveal();
+  else {
+    section.hidden = true;
+    document.addEventListener("boot:done", reveal, { once: true });
+  }
+</script>

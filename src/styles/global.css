@@ -12,6 +12,11 @@
   --accent: #58a6ff;
   --dim: #6e7681;
   --border: #21262d;
+  --contrib-0: #161b22;
+  --contrib-1: #0e4429;
+  --contrib-2: #006d32;
+  --contrib-3: #26a641;
+  --contrib-4: #39d353;
 }
 
 :root[data-theme="light"] {
@@ -20,6 +25,11 @@
   --accent: #0969da;
   --dim: #6e7781;
   --border: #d0d7de;
+  --contrib-0: #ebedf0;
+  --contrib-1: #9be9a8;
+  --contrib-2: #40c463;
+  --contrib-3: #30a14e;
+  --contrib-4: #216e39;
 }
 
 html, body {

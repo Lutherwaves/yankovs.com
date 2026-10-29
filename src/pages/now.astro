@@ -1,12 +1,14 @@
 ---
 import Terminal from "../layouts/Terminal.astro";
-const updated = "2026-05-31";
+const updated = "2026-10-29";
 ---
 <Terminal title="Martin Yankov — now" route="/now" description="What I'm working on right now." updated={updated}>
   <p class="dim">$ cat now.md</p>
   <ul class="mt-4 list-none">
-    <li>· Heads-down builder.</li>
-    <li>· Learning via lutherskills.</li>
+    <li>· Building the next legal OS for modern lawyers at <a href="https://lexroom.ai">Lexroom.ai</a>.</li>
+    <li>· Building the OS for modern builders.</li>
+    <li>· Shipped: <a href="https://goifc.org">goifc</a>, <a href="https://openblox.sh">openblox</a>, <a href="https://matchblox.sh">matchblox</a> and <a href="https://github.com/Lutherwaves/builder">builder</a>.</li>
+    <li>· Learning via <a href="https://github.com/Lutherwaves/lutherskills">lutherskills</a>.</li>
   </ul>
   <p class="dim mt-8">Last updated {updated}.</p>
 </Terminal>
