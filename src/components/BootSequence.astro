@@ -49,18 +49,21 @@
     try {
       sessionStorage.setItem("boot-played", "1");
     } catch {}
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
     (async () => {
-      for (const s of sequence) {
-        const line = appendLine({ kind: s.kind, text: "" });
-        if (s.kind === "prompt") {
-          line.textContent = s.text;
-          await new Promise((r) => setTimeout(r, 250));
-        } else {
-          for (const ch of s.text) {
-            line.textContent += ch;
-            await new Promise((r) => setTimeout(r, 30));
-          }
+      for (const [i, s] of sequence.entries()) {
+        if (s.kind === "out") {
+          appendLine(s);
+          if (sequence[i + 1]?.kind === "prompt") await wait(400);
+          continue;
         }
+        const typed = s.text.startsWith("$ ") ? "$ " : "";
+        const line = appendLine({ kind: s.kind, text: typed });
+        for (const ch of s.text.slice(typed.length)) {
+          line.textContent += ch;
+          await wait(45);
+        }
+        await wait(250);
       }
       done();
     })();
