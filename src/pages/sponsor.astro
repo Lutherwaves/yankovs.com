@@ -22,8 +22,9 @@ const sponsoring = [
   <p>$1 is as welcome as $100. It's not the money. It's the signal.</p>
 
   <p class="dim mt-8">$ bills --by-share</p>
-  <pre class="mt-2 hidden sm:block" aria-label="Bills by share: claude code largest, then apple developer, github ci/cd and domains">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(b.share, 20)}  <span class="dim">{b.note}</span></div>)}</pre>
-  <pre class="mt-2 sm:hidden" aria-label="Bills by share: claude code largest, then apple developer, github ci/cd and domains">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(Math.ceil(b.share / 2), 10)}<div class="dim">  {b.note}</div></div>)}</pre>
+  <pre class="mt-2 hidden sm:block" aria-hidden="true">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(b.share, 20)}  <span class="dim">{b.note}</span></div>)}</pre>
+  <pre class="mt-2 sm:hidden" aria-hidden="true">{bills.map((b) => <div>{b.name.padEnd(17)}{bar(Math.ceil(b.share / 2), 10)}<div class="dim">  {b.note}</div></div>)}</pre>
+  <p class="sr-only">Bills by share: claude code largest, then apple developer, github ci/cd and domains.</p>
   <p class="dim">rough shares, not invoices</p>
 
   <p class="dim mt-8">$ cat ~/sponsoring</p>

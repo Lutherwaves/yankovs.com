@@ -209,8 +209,8 @@ git commit -S -m "feat: sponsor page and nav heart"
 
 - [ ] **Step 1: Run every gate**
 
-Run: `npm test && npx astro check && npm run build && git diff origin/main --name-only && git diff origin/main -- src | rg -in "blox" | rg -iv "openblox|matchblox"`
-Expected: tests pass, `0 errors`, build succeeds, and the last search prints nothing.
+Run: `npm test && npx astro check && npm run build && git diff origin/main --name-only && git diff origin/main -- src | rg -in "$PRIVATE_NAME"`
+Expected: tests pass, `0 errors`, build succeeds, and the last search prints nothing (`PRIVATE_NAME` is set from Martin's private notes, never written in this repo).
 
 - [ ] **Step 2: Publish the screenshots as one artifact** for Martin's copy review: each page at 1280 and 375, plus the chart failure state.
 

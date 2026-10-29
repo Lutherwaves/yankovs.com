@@ -54,7 +54,7 @@
   if (cached) calendar = cached.calendar;
   else label.textContent = "loading contributions…";
   if (!cached?.fresh) {
-    fetch(API_URL)
+    fetch(API_URL, { signal: AbortSignal.timeout(8000) })
       .then((res) => (res.ok ? res.json() : null))
       .then((json) => {
         const fetched = parseCalendar(json);
