@@ -30,6 +30,7 @@
 
   const appendLine = (s: { kind: string; text: string }) => {
     const line = document.createElement("div");
+    line.style.minHeight = "1lh";
     if (s.kind === "prompt") line.className = "dim";
     line.textContent = s.text;
     out.appendChild(line);

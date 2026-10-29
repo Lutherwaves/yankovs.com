@@ -1,0 +1,79 @@
+---
+---
+<section id="contrib" class="mt-6">
+  <p class="dim">$ git contributions --last-year</p>
+  <p id="contrib-label"><a href="https://github.com/Lutherwaves">contributions unavailable · see github.com/Lutherwaves</a></p>
+  <div id="contrib-chart" hidden>
+    <pre id="contrib-grid" aria-hidden="true" class="mt-2" style="color: var(--accent); line-height: 1.25"></pre>
+    <p class="dim" aria-hidden="true">    less ·░▒▓█ more</p>
+  </div>
+  <span id="contrib-probe" aria-hidden="true" style="position: absolute; visibility: hidden">█</span>
+  <p class="mt-6">$ <a href="/sponsor">cd sponsor ♥</a></p>
+</section>
+
+<script>
+  import { API_URL, parseCalendar, readCache, writeCache, toRows, type Calendar } from "../lib/contributions";
+
+  const ROW_LABELS = ["   ", "Mon", "   ", "Wed", "   ", "Fri", "   "];
+  const LABEL_WIDTH = 4;
+
+  const section = document.getElementById("contrib")!;
+  const label = document.getElementById("contrib-label")!;
+  const chart = document.getElementById("contrib-chart")!;
+  const grid = document.getElementById("contrib-grid")!;
+  const probe = document.getElementById("contrib-probe")!;
+
+  let storage: Storage | null = null;
+  try {
+    storage = window.localStorage;
+  } catch {}
+
+  let calendar: Calendar | null = null;
+
+  const render = () => {
+    if (!calendar || section.hidden) return;
+    const glyph = probe.getBoundingClientRect().width || 9;
+    const maxWeeks = Math.floor(section.clientWidth / glyph) - LABEL_WIDTH;
+    grid.textContent = toRows(calendar.days, maxWeeks)
+      .map((row, i) => `${ROW_LABELS[i]} ${row}`)
+      .join("\n");
+
+    const link = document.createElement("a");
+    link.href = "https://github.com/Lutherwaves";
+    link.textContent = "github.com/Lutherwaves";
+    label.replaceChildren(`${calendar.total.toLocaleString("en-US")} contributions · `, link);
+    chart.hidden = false;
+  };
+
+  const unavailable = [...label.childNodes];
+  const fail = () => {
+    if (!calendar) label.replaceChildren(...unavailable);
+  };
+
+  const cached = readCache(storage, Date.now());
+  if (cached) calendar = cached.calendar;
+  else label.textContent = "loading contributions…";
+  if (!cached?.fresh) {
+    fetch(API_URL)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((json) => {
+        const fetched = parseCalendar(json);
+        if (!fetched) return fail();
+        calendar = fetched;
+        writeCache(storage, fetched, Date.now());
+        render();
+      })
+      .catch(fail);
+  }
+
+  const reveal = () => {
+    section.hidden = false;
+    render();
+  };
+  if (document.documentElement.dataset.boot === "done") reveal();
+  else {
+    section.hidden = true;
+    document.addEventListener("boot:done", reveal, { once: true });
+  }
+  window.addEventListener("resize", render);
+</script>
