@@ -5,7 +5,6 @@ export type Calendar = { total: number; days: Day[] };
 export const API_URL = "https://github-contributions-api.jogruber.de/v4/Lutherwaves?y=last";
 export const CACHE_KEY = "contributions:v1";
 export const TTL_MS = 12 * 60 * 60 * 1000;
-export const LEVEL_CHARS = "·░▒▓█";
 
 const isDay = (d: unknown): d is Day => {
   if (typeof d !== "object" || d === null) return false;
@@ -49,11 +48,28 @@ export function writeCache(storage: Storage | null, calendar: Calendar, now: num
   } catch {}
 }
 
-export function toRows(days: Day[], maxWeeks: number): string[] {
-  const first = new Date(days[0].date + "T00:00:00Z").getUTCDay();
-  const cells = [...Array(first).fill(" "), ...days.map((d) => LEVEL_CHARS[d.level])];
-  const weeks: string[][] = [];
-  for (let i = 0; i < cells.length; i += 7) weeks.push(cells.slice(i, i + 7));
-  const shown = weeks.slice(-Math.max(1, maxWeeks));
-  return Array.from({ length: 7 }, (_, row) => shown.map((week) => week[row] ?? " ").join(""));
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const weekday = (date: string) => new Date(date + "T00:00:00Z").getUTCDay();
+
+export function toWeeks(days: Day[]): (Day | null)[][] {
+  const weeks: (Day | null)[][] = [];
+  for (const d of days) {
+    const dow = weekday(d.date);
+    if (weeks.length === 0) weeks.push(Array(dow).fill(null));
+    else if (dow === 0) weeks.push([]);
+    weeks[weeks.length - 1].push(d);
+  }
+  return weeks;
+}
+
+export function monthLabels(weeks: (Day | null)[][]): string[] {
+  let previous = -1;
+  const labels = weeks.map((week) => {
+    const first = week.find((d) => d !== null);
+    const month = first ? Number(first.date.slice(5, 7)) - 1 : previous;
+    if (month === previous) return "";
+    previous = month;
+    return MONTHS[month];
+  });
+  return labels.map((label, i) => (label && labels.slice(i + 1, i + 3).some(Boolean) ? "" : label));
 }

@@ -18,7 +18,7 @@ Supporting belief: open source runs on people sponsoring each other. The amount 
 - Lexroom.ai appears as the current project, with no job title.
 - "The OS for modern builders" appears as a public, unnamed current project.
 - The four launches appear on `/building` and `/now`.
-- A live contribution chart on `/`, drawn in block characters.
+- A live contribution graph on `/`, in GitHub's own look.
 - A ♥ in the nav and a `/sponsor` page that names the real bills and links to GitHub Sponsors.
 
 ## Non-goals
@@ -145,8 +145,8 @@ The share bars are Claude's estimate (16/5/4/2 of 20). Martin corrects them at c
 
 - Source: `GET https://github-contributions-api.jogruber.de/v4/Lutherwaves?y=last`. Response: `{ total: { lastYear }, contributions: [{ date, count, level 0–4 }] }`. CORS `*`, verified 2026-10-29 (13,433 contributions in the last year).
 - Cache: `localStorage`, 12-hour TTL, every read and write in try/catch. A blocked storage means a fetch on each visit.
-- Draw: one row per weekday, one column per week, level 0–4 → `·░▒▓█`, with a `less ·░▒▓█ more` legend and the total. Colour from the theme accent. The grid is `aria-hidden`; a text label gives the total.
-- Width: the whole year at every width, glyphs sized to fill the container; row labels stay at text size. The page never scrolls sideways at 375px (Martin, 2026-10-29).
+- Draw: the vanilla GitHub graph (Martin, 2026-10-29: the scaled glyph chart was too big). 11px squares, 3px gaps, GitHub's five green levels per theme (`--contrib-0` to `--contrib-4`), month labels on top (a label is dropped when the next month starts within two weeks), Mon/Wed/Fri on the left, a "Less … More" legend and a per-day tooltip. The grid is `aria-hidden`; the label line gives the total.
+- Width: fixed at about 770px. Narrower screens scroll the graph inside its own box, opened at the latest week. The page never scrolls sideways.
 - Failure (fetch error, bad JSON, no cache): `contributions unavailable · see github.com/Lutherwaves`, linked. Never an empty grid or a zero. A stale cache beats the failure line.
 
 ## Calls made (Claude)

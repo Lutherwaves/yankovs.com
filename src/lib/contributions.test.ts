@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { parseCalendar, readCache, writeCache, toRows, TTL_MS } from "./contributions.ts";
+import { parseCalendar, readCache, writeCache, toWeeks, monthLabels, TTL_MS } from "./contributions.ts";
 
 test("parseCalendar reads total and days", () => {
   const c = parseCalendar({ total: { lastYear: 13433 }, contributions: [{ date: "2026-10-29", count: 17, level: 1 }] });
@@ -38,20 +38,31 @@ test("readCache marks fresh and stale by TTL", () => {
   assert.equal(readCache(storage, 1000 + TTL_MS)?.fresh, false);
 });
 
-test("toRows pads the first week and maps levels", () => {
+const day = (date: string, level: 0 | 1 | 2 | 3 | 4 = 0) => ({ date, count: level, level });
+
+test("toWeeks pads the first week with nulls, Sunday first", () => {
   // 2026-10-28 is a Wednesday
-  const rows = toRows([{ date: "2026-10-28", count: 0, level: 0 }, { date: "2026-10-29", count: 9, level: 4 }], 53);
-  assert.equal(rows.length, 7);
-  assert.equal(rows[0], " ");
-  assert.equal(rows[3], "·");
-  assert.equal(rows[4], "█");
+  const weeks = toWeeks([day("2026-10-28"), day("2026-10-29", 4)]);
+  assert.equal(weeks.length, 1);
+  assert.deepEqual(weeks[0].slice(0, 3), [null, null, null]);
+  assert.equal(weeks[0][3]?.date, "2026-10-28");
+  assert.equal(weeks[0][4]?.level, 4);
+  assert.equal(weeks[0].length, 5);
 });
 
-test("toRows keeps only the last maxWeeks columns", () => {
-  const days = Array.from({ length: 70 }, (_, i) => ({
-    date: new Date(Date.UTC(2026, 0, 4 + i)).toISOString().slice(0, 10),
-    count: 0,
-    level: 0 as const,
-  }));
-  assert.equal(toRows(days, 3)[0].length, 3);
+test("toWeeks starts a new column every Sunday", () => {
+  const days = Array.from({ length: 70 }, (_, i) => day(new Date(Date.UTC(2026, 0, 4 + i)).toISOString().slice(0, 10)));
+  assert.equal(toWeeks(days).length, 10);
+});
+
+test("monthLabels names a month on the first week it starts in", () => {
+  // Sundays 2026-09-13, 09-20, 09-27, 10-04, 10-11
+  const days = Array.from({ length: 35 }, (_, i) => day(new Date(Date.UTC(2026, 8, 13 + i)).toISOString().slice(0, 10)));
+  assert.deepEqual(monthLabels(toWeeks(days)), ["Sep", "", "", "Oct", ""]);
+});
+
+test("monthLabels drops a label when the next month starts within two weeks", () => {
+  // Sundays 2026-10-25, 11-01, 11-08: Oct gets one column before Nov
+  const days = Array.from({ length: 21 }, (_, i) => day(new Date(Date.UTC(2026, 9, 25 + i)).toISOString().slice(0, 10)));
+  assert.deepEqual(monthLabels(toWeeks(days)), ["", "Nov", ""]);
 });
