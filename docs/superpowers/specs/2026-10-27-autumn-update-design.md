@@ -30,6 +30,7 @@ Supporting belief: open source runs on people sponsoring each other. The amount 
 - No GitHub Sponsors widget iframe (breaks the terminal look).
 - No `.github/FUNDING.yml` in other repos (outside this repo; next step).
 - No launch blog post; no layout or theme changes.
+- No copy that goes stale fast: release stages, seasons, status tags (Martin, 2026-10-29: too much to maintain).
 
 ## Anti-goals
 
@@ -90,8 +91,7 @@ Below the boot sequence, the contribution chart (see Chart), then `$ cd sponsor 
 $ cat now.md
 · Building the next legal OS for modern lawyers at Lexroom.ai.
 · Building the OS for modern builders.
-· Shipped this autumn: goifc, openblox, matchblox and builder.
-· matchblox for iOS is in TestFlight.
+· Shipped: goifc, openblox, matchblox and builder.
 · Learning via lutherskills.
 ```
 
@@ -99,11 +99,11 @@ $ cat now.md
 
 ```
 $ ls -la ~/building
-· lexroom.ai — the legal OS for modern lawyers · current
-· the OS for modern builders · current
+· lexroom.ai — the legal OS for modern lawyers
+· the OS for modern builders
 · goifc.org — read IFC building models from Go, no CGO
 · openblox.sh — run untrusted AI-generated code on your own hardware
-· matchblox.sh — one console for every AI coding agent you run · iOS in TestFlight
+· matchblox.sh — one console for every AI coding agent you run
 · builder — makes your coding agent answer to you
 · eopowers — Bulgarian public procurement
 · coinskills — personal finance
@@ -123,7 +123,7 @@ $1 is as welcome as $100. It's not the money. It's the signal.
 
 $ bills --by-share
 claude code      ████████████████░░░░  the dev seat
-apple developer  █████░░░░░░░░░░░░░░░  matchblox on iOS
+apple developer  █████░░░░░░░░░░░░░░░  the iOS builds
 github ci/cd     ████░░░░░░░░░░░░░░░░  grows with every push
 domains          ██░░░░░░░░░░░░░░░░░░  the .sh and .org names
 
