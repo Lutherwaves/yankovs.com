@@ -126,7 +126,6 @@ claude code      ████████████████░░░░  t
 apple developer  █████░░░░░░░░░░░░░░░  matchblox on iOS
 github ci/cd     ████░░░░░░░░░░░░░░░░  grows with every push
 domains          ██░░░░░░░░░░░░░░░░░░  the .sh and .org names
-rough shares, not invoices
 
 $ cat ~/sponsoring
 ♥ open-webui · llama.cpp · openclaw
@@ -147,7 +146,7 @@ The share bars are Claude's estimate (16/5/4/2 of 20). Martin corrects them at c
 - Source: `GET https://github-contributions-api.jogruber.de/v4/Lutherwaves?y=last`. Response: `{ total: { lastYear }, contributions: [{ date, count, level 0–4 }] }`. CORS `*`, verified 2026-10-29 (13,433 contributions in the last year).
 - Cache: `localStorage`, 12-hour TTL, every read and write in try/catch. A blocked storage means a fetch on each visit.
 - Draw: one row per weekday, one column per week, level 0–4 → `·░▒▓█`, with a `less ·░▒▓█ more` legend and the total. Colour from the theme accent. The grid is `aria-hidden`; a text label gives the total.
-- Width: show the most recent weeks that fit the container. The page never scrolls sideways at 375px.
+- Width: the whole year at every width, glyphs sized to fill the container; row labels stay at text size. The page never scrolls sideways at 375px (Martin, 2026-10-29).
 - Failure (fetch error, bad JSON, no cache): `contributions unavailable · see github.com/Lutherwaves`, linked. Never an empty grid or a zero. A stale cache beats the failure line.
 
 ## Calls made (Claude)

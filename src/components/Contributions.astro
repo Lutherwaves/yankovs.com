@@ -4,8 +4,11 @@
   <p class="dim">$ git contributions --last-year</p>
   <p id="contrib-label"><a href="https://github.com/Lutherwaves">contributions unavailable · see github.com/Lutherwaves</a></p>
   <div id="contrib-chart" hidden>
-    <pre id="contrib-grid" aria-hidden="true" class="mt-2" style="color: var(--accent); line-height: 1.25"></pre>
-    <p class="dim" aria-hidden="true">    less ·░▒▓█ more</p>
+    <div class="mt-2 flex gap-[1ch]" aria-hidden="true">
+      <pre id="contrib-days" class="dim"></pre>
+      <pre id="contrib-grid" class="flex-1 min-w-0 overflow-hidden" style="color: var(--accent); line-height: 1.15"></pre>
+    </div>
+    <p class="dim" aria-hidden="true">less ·░▒▓█ more</p>
   </div>
   <span id="contrib-probe" aria-hidden="true" style="position: absolute; visibility: hidden">█</span>
   <p class="mt-6">$ <a href="/sponsor">cd sponsor ♥</a></p>
@@ -14,12 +17,12 @@
 <script>
   import { API_URL, parseCalendar, readCache, writeCache, toRows, type Calendar } from "../lib/contributions";
 
-  const ROW_LABELS = ["   ", "Mon", "   ", "Wed", "   ", "Fri", "   "];
-  const LABEL_WIDTH = 4;
+  const ROW_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""];
 
   const section = document.getElementById("contrib")!;
   const label = document.getElementById("contrib-label")!;
   const chart = document.getElementById("contrib-chart")!;
+  const days = document.getElementById("contrib-days")!;
   const grid = document.getElementById("contrib-grid")!;
   const probe = document.getElementById("contrib-probe")!;
 
@@ -32,17 +35,23 @@
 
   const render = () => {
     if (!calendar || section.hidden) return;
-    const glyph = probe.getBoundingClientRect().width || 9;
-    const maxWeeks = Math.floor(section.clientWidth / glyph) - LABEL_WIDTH;
-    grid.textContent = toRows(calendar.days, maxWeeks)
-      .map((row, i) => `${ROW_LABELS[i]} ${row}`)
-      .join("\n");
+    const rows = toRows(calendar.days, Infinity);
+    grid.textContent = rows.join("\n");
+    days.textContent = ROW_LABELS.join("\n");
+    chart.hidden = false;
+    const textSize = parseFloat(getComputedStyle(probe).fontSize);
+    const glyphRatio = probe.getBoundingClientRect().width / textSize || 0.6;
+    const fit = () => grid.clientWidth / (rows[0].length * glyphRatio);
+    days.hidden = false;
+    if (fit() * 1.15 < textSize) days.hidden = true;
+    const fontSize = fit();
+    grid.style.fontSize = `${fontSize}px`;
+    days.style.lineHeight = `${fontSize * 1.15}px`;
 
     const link = document.createElement("a");
     link.href = "https://github.com/Lutherwaves";
     link.textContent = "github.com/Lutherwaves";
     label.replaceChildren(`${calendar.total.toLocaleString("en-US")} contributions · `, link);
-    chart.hidden = false;
   };
 
   const unavailable = [...label.childNodes];
